@@ -1090,7 +1090,7 @@ a.link-accent:hover {
     box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
 }
 
-/* Zástupný rámeček (používá se v návodu v komentářích HTML) */
+/* Zástupný rámeček */
 
 .book-image-slot {
     display: flex;

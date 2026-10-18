@@ -503,7 +503,7 @@
 
         <h1 class="section-title">
 
-            Malý vesmír věcí, které miluji. TEST
+            Malý vesmír věcí, které miluji.
 
         </h1>
 
@@ -549,17 +549,32 @@
 
                         <p class="card-category"><i class="bi bi-calendar-week me-1"></i> TENTO TÝDEN</p>
 
-                        <h3 class="card-title">Co se dělo</h3>
+                        <div class="d-flex flex-column flex-sm-row gap-3 align-items-center">
 
-                        <p class="card-text">
-                            Poslední dny trochu zanedbávám koníčky
-                            a hlavně se inspiruji — brouzdám návody
-                            na nové vzory korálků. Hodně peču
-                            a věnuji se škole. Fotka je z kavárny v Praze, kde coffe art nápadně připomíná postavu z filmu Donnie Darko
-                        </p>
+                            <div class="flex-grow-1">
+                                <h3 class="card-title">Co se dělo</h3>
+                                <p class="card-text mb-0">
+                                    Poslední dny trochu zanedbávám koníčky
+                                    a hlavně se inspiruji — brouzdám návody
+                                    na nové vzory korálků. Hodně peču
+                                    a věnuji se škole. Fotka je z kavárny v Praze, kde coffe art nápadně připomíná postavu z filmu Donnie Darko
+                                </p>
+                            </div>
 
-                        <div class="book-image-slot ratio ratio-16x9 mt-2">
-                            <div><i class="bi bi-image"></i></div>
+                            <div class="flex-shrink-0 text-center">
+                                <button type="button"
+                                        class="btn p-0 border-0 bg-transparent"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#kavaModal"
+                                        aria-label="Zvětšit fotku kávy">
+                                    <img src="images/kava.jpeg"
+                                         alt="Káva s coffee artem z kavárny v Praze"
+                                         class="img-fluid rounded"
+                                         style="max-height: 180px; width: auto; object-fit: contain; border: 1px solid var(--border-strong); box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35); cursor: pointer;"
+                                         title="Kliknutím zvětšíte">
+                                </button>
+                            </div>
+
                         </div>
 
                     </div>
@@ -747,6 +762,50 @@
 
     </div>
 
+
+</div>
+
+
+<!-- Modal pro zvětšení fotky kávy -->
+<div class="modal fade"
+     id="kavaModal"
+     tabindex="-1"
+     aria-labelledby="kavaModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h2 class="modal-title fs-5" id="kavaModalLabel">
+                    <i class="bi bi-cup-hot me-2"></i>Coffee Art — Donnie Darko
+                </h2>
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Zavřít">
+                </button>
+            </div>
+
+            <div class="modal-body text-center p-3">
+                <img src="images/kava.jpeg"
+                     alt="Káva s coffee artem z kavárny v Praze"
+                     class="img-fluid rounded"
+                     style="max-height: 75vh; object-fit: contain;">
+            </div>
+
+            <div class="modal-footer">
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Zavřít
+                </button>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 

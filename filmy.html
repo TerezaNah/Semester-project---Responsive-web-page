@@ -140,7 +140,7 @@
     </section>
 
 
-    <!-- TOP 10: sem přijdou plakáty (obrázek vložte místo .poster-slot, viz komentář) -->
+    <!-- TOP 10 -->
 
     <section class="page-section">
 
@@ -151,12 +151,6 @@
             <h2 class="h3 heading-hand">TOP 10</h2>
 
         </div>
-
-        <!--
-            Plakát doplníte tak, že element <div class="poster-slot">…</div>
-            nahradíte tímto:
-            <img src="images/filmy/nazev.jpg" class="poster-image" alt="Plakát filmu …" width="300" height="450">
-        -->
 
         <div class="row row-cols-2 row-cols-md-5 g-3">
 
@@ -505,7 +499,7 @@
 </main>
 
 
-<!-- MODAL (filled by JavaScript from data-* attributes) -->
+<!-- MODAL -->
 
 <div class="modal fade"
      id="movieModal"
@@ -583,7 +577,7 @@
 
 <script>
 
-    // Fill the modal with data from the button that opened it
+    // Naplnění modalu daty z tlačítka
     const movieModal = document.getElementById("movieModal");
 
     movieModal.addEventListener("show.bs.modal", function (event) {
