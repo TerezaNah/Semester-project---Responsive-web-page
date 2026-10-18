@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="cs" data-bs-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Knihy | My Little Universe</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="site-header text-center py-4">
+
+    <div class="container">
+
+        <a href="index.html"
+           class="site-logo text-decoration-none">
+
+            MY LITTLE UNIVERSE
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN NAVIGATION -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <span class="navbar-label d-lg-none"><i class="bi bi-stars me-2"></i>MENU</span>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu"
+                aria-controls="mainMenu"
+                aria-expanded="false"
+                aria-label="Zobrazit navigaci">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center"
+             id="mainMenu">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i> DOMŮ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="knihy.html"><i class="bi bi-book me-1"></i> KNIHY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hudba.html"><i class="bi bi-music-note-beamed me-1"></i> HUDBA</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="filmy.html"><i class="bi bi-film me-1"></i> FILMY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="crafting.html"><i class="bi bi-scissors me-1"></i> TVOŘENÍ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hry.html"><i class="bi bi-controller me-1"></i> HRY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="o-mne.html"><i class="bi bi-person-heart me-1"></i> O MNĚ</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <nav aria-label="breadcrumb" class="mt-3">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="index.html">Domů</a>
+            </li>
+
+            <li class="breadcrumb-item active"
+                aria-current="page">
+                Books
+            </li>
+
+        </ol>
+
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-hero text-center">
+
+        <h1 class="section-label knihy-title">
+            <span class="knihy-title-main">KNIHY</span>
+            <span class="knihy-title-sub">A PŘÍBĚHY</span>
+        </h1>
+
+        <p class="lead mx-auto">
+            Jsem milovník hard sci-fi, temných krimi, kouzelné fantasy,
+            přírodních věd a dramatických příběhů. Pojďme si o knihách
+            popovídat, doporučit si, co nás baví, a navzájem se inspirovat.
+        </p>
+
+    </section>
+
+
+    <!-- TABS -->
+
+    <section class="page-section">
+
+        <ul class="nav nav-tabs"
+            id="booksTabs"
+            role="tablist">
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active"
+                        id="reading-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#reading"
+                        type="button"
+                        role="tab"
+                        aria-controls="reading"
+                        aria-selected="true">
+                    <i class="bi bi-book-half me-1"></i> Právě čtu
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link"
+                        id="favourites-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#favourites"
+                        type="button"
+                        role="tab"
+                        aria-controls="favourites"
+                        aria-selected="false">
+                    <i class="bi bi-star-fill me-1"></i> Oblíbené
+                </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+                <button class="nav-link"
+                        id="wishlist-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#wishlist"
+                        type="button"
+                        role="tab"
+                        aria-controls="wishlist"
+                        aria-selected="false">
+                    <i class="bi bi-bookmark-heart me-1"></i> Seznam přání
+                </button>
+            </li>
+
+        </ul>
+
+
+        <div class="tab-content" id="booksTabsContent">
+
+
+            <!-- TAB 1 -->
+
+            <div class="tab-pane fade show active"
+                 id="reading"
+                 role="tabpanel"
+                 aria-labelledby="reading-tab"
+                 tabindex="0">
+
+                <article class="book-card">
+
+                    <!-- Hlavní obálka -->
+
+                    <div class="book-card-cover">
+
+                        <div class="ratio book-ratio">
+
+                            <img src="images/panprstenu.jpg"
+                                 class="book-image"
+                                 alt="Obálka knihy Pán prstenů: Společenstvo prstenu">
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Text -->
+
+                    <div class="book-card-body">
+
+                        <div class="book-head">
+
+                            <h2 class="book-title">Pán prstenů: Společenstvo prstenu</h2>
+
+                            <p class="book-author">J. R. R. Tolkien</p>
+
+                        </div>
+
+                        <p class="book-blurb">
+                            První díl Pána prstenů. Večery patří Frodovi,
+                            Kraji a velmi dlouhé cestě k Mordoru.
+                        </p>
+
+                        <!-- Reading progress: page 340 of 448 (about 76 %) -->
+
+                        <div class="reading-progress">
+
+                            <div class="d-flex justify-content-between align-items-baseline mb-2">
+                                <span class="reading-progress-label"><i class="bi bi-bookmark-fill icon-accent me-1"></i> Strana 340 z 448</span>
+                                <span class="reading-progress-value">76 %</span>
+                            </div>
+
+                            <div class="progress"
+                                 role="progressbar"
+                                 aria-label="Postup čtení"
+                                 aria-valuenow="340"
+                                 aria-valuemin="0"
+                                 aria-valuemax="448">
+                                <div class="progress-bar" style="width: 76%"></div>
+                            </div>
+
+                        </div>
+
+                        <button type="button"
+                                class="btn btn-details"
+                                data-bs-toggle="modal"
+                                data-bs-target="#bookModal">
+                            <i class="bi bi-info-circle me-1"></i> Podrobnosti o knize
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- TAB 2 -->
+
+            <div class="tab-pane fade"
+                 id="favourites"
+                 role="tabpanel"
+                 aria-labelledby="favourites-tab"
+                 tabindex="0">
+
+                <h2 class="h3 heading-hand mb-3">Knihy, ke kterým se vracím</h2>
+
+                <!-- Each book: title on top, space for the cover below.
+                     To add a cover, replace the <div class="book-image-slot">
+                     with: <img src="images/your-file.jpg" class="book-image" alt="Obálka knihy: ...">
+                -->
+
+                <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 mb-4">
+
+                    <div class="col">
+
+                        <div class="d-flex flex-column h-100">
+
+                            <h3 class="book-entry-title" lang="cs">
+                                <i class="bi bi-star-fill icon-accent me-1"></i>Konec dětství
+                            </h3>
+
+                            <p class="book-entry-author">Arthur Charles Clarke</p>
+
+                            <div class="ratio book-ratio mt-auto">
+                                <img src="images/konec-detstvi.jpg"
+                                     class="book-image"
+                                     alt="Obálka knihy: Konec dětství">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="d-flex flex-column h-100">
+
+                            <h3 class="book-entry-title" lang="cs">
+                                <i class="bi bi-star-fill icon-accent me-1"></i>Astronautův průvodce životem na Zemi
+                            </h3>
+
+                            <p class="book-entry-author">Chris Hadfield</p>
+
+                            <div class="ratio book-ratio mt-auto">
+                                <img src="images/astronautuv_pruvodce.webp"
+                                     class="book-image"
+                                     alt="Obálka knihy: Astronautův průvodce životem na Zemi">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="d-flex flex-column h-100">
+
+                            <h3 class="book-entry-title" lang="cs">
+                                <i class="bi bi-star-fill icon-accent me-1"></i>Hobit aneb Cesta tam a zase zpátky
+                            </h3>
+
+                            <p class="book-entry-author">J. R. R. Tolkien</p>
+
+                            <div class="ratio book-ratio mt-auto">
+                                <img src="images/hobit.webp"
+                                     class="book-image"
+                                     alt="Obálka knihy: Hobit aneb Cesta tam a zase zpátky">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="d-flex flex-column h-100">
+
+                            <h3 class="book-entry-title" lang="cs">
+                                <i class="bi bi-star-fill icon-accent me-1"></i>2001: Vesmírná odysea
+                            </h3>
+
+                            <p class="book-entry-author">Arthur C. Clarke</p>
+
+                            <div class="ratio book-ratio mt-auto">
+                                <img src="images/vesmirna_odyssea.webp"
+                                     class="book-image"
+                                     alt="Obálka knihy: 2001: Vesmírná odysea">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col">
+
+                        <div class="d-flex flex-column h-100">
+
+                            <h3 class="book-entry-title" lang="cs">
+                                <i class="bi bi-star-fill icon-accent me-1"></i>Koule
+                            </h3>
+
+                            <p class="book-entry-author">Michael Crichton</p>
+
+                            <div class="ratio book-ratio mt-auto">
+                                <img src="images/koule.webp"
+                                     class="book-image"
+                                     alt="Obálka knihy: Koule">
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <a href="o-mne.html"
+                   class="btn btn-success btn-sm">
+                    <i class="bi bi-chat-heart me-1"></i> Doporučte mi knihu
+                </a>
+
+            </div>
+
+
+            <!-- TAB 3 -->
+
+            <div class="tab-pane fade"
+                 id="wishlist"
+                 role="tabpanel"
+                 aria-labelledby="wishlist-tab"
+                 tabindex="0">
+
+                <div class="wishlist-box text-center">
+
+                    <i class="bi bi-bookmark-heart wishlist-icon"></i>
+
+                    <p class="section-label mt-3 mb-1">SEZNAM PŘÁNÍ</p>
+
+                    <h2 class="h3 heading-hand mb-3">Knihy, které si chci pořídit</h2>
+
+                    <p class="mx-auto mb-4 wishlist-text">
+                        Celý můj seznam je na Databázi knih,
+                        takže je vždy aktuální.
+                    </p>
+
+                    <a href="https://www.databazeknih.cz/chci-si-koupit/tereszka-38684"
+                       class="btn btn-primary btn-lg"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <i class="bi bi-box-arrow-up-right me-2"></i>Otevřít můj seznam
+                    </a>
+
+                    <p class="small text-secondary mt-3 mb-0">
+                        Otevře se v nové záložce na databazeknih.cz
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- KOMENTÁŘE NÁVŠTĚVNÍKŮ -->
+
+    <section class="page-section"
+             aria-labelledby="commentsTitle">
+
+        <div class="text-center mb-4">
+
+            <p class="section-label mb-1">
+                <i class="bi bi-chat-heart me-1"></i> KOMENTÁŘE
+            </p>
+
+            <h2 class="h3 heading-hand"
+                id="commentsTitle">
+                Podělte se se mnou o své knižní zážitky a tipy
+            </h2>
+
+        </div>
+
+
+        <div class="row g-4">
+
+
+            <!-- Formulář -->
+
+            <div class="col-12 col-lg-5">
+
+                <div class="form-panel">
+
+                    <form id="commentForm"
+                          class="needs-validation"
+                          novalidate>
+
+                        <div class="mb-3">
+
+                            <label for="commentName" class="form-label">Jméno</label>
+
+                            <div class="input-group has-validation">
+
+                                <span class="input-group-text">
+                                    <i class="bi bi-person"></i>
+                                </span>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="commentName"
+                                       maxlength="40"
+                                       required>
+
+                                <div class="invalid-feedback">
+                                    Zadejte prosím své jméno.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="commentText" class="form-label">Komentář</label>
+
+                            <textarea class="form-control"
+                                      id="commentText"
+                                      rows="4"
+                                      maxlength="500"
+                                      required></textarea>
+
+                            <div class="invalid-feedback">
+                                Napište prosím krátký komentář.
+                            </div>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+                            <i class="bi bi-send me-1"></i> Odeslat komentář
+                        </button>
+
+                    </form>
+
+                    <p class="small text-secondary mt-3 mb-0">
+                        Komentáře se ukládají jen ve vašem prohlížeči
+                        a ostatní návštěvníci je neuvidí.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Seznam komentářů -->
+
+            <div class="col-12 col-lg-7">
+
+                <div id="commentList"
+                     aria-live="polite">
+                </div>
+
+                <p id="commentEmpty"
+                   class="text-secondary text-center mb-0">
+                    Zatím tu nejsou žádné komentáře. Buďte první!
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal fade"
+     id="bookModal"
+     tabindex="-1"
+     aria-labelledby="bookModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 class="modal-title fs-5"
+                    id="bookModalLabel">
+                    <i class="bi bi-book-half me-2"></i>Aktuálně čtu
+                </h2>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Zavřít">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    <strong>Název:</strong> Pán prstenů: Společenstvo prstenu<br>
+                    <strong>Autor:</strong> J. R. R. Tolkien<br>
+                    <strong>Žánr:</strong> epická fantasy<br>
+                    <strong>Nálada:</strong> pomalá, atmosférická, dobrodružná
+                </p>
+
+                <p class="mb-0">
+                    Nejlépe se čte s dekou, šálkem čaje
+                    a naprosto žádnými plány na večer.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Zavřít
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+    <div class="container text-center">
+
+        <p class="footer-logo mb-2">MY LITTLE UNIVERSE</p>
+
+        <p class="small text-secondary mb-3">
+            knihy • hudba • filmy • tvoření • hry
+        </p>
+
+        <hr class="footer-line">
+
+        <p class="small text-secondary mb-0">
+            © 2026 My Little Universe • Semestrální projekt
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/comments.js"></script>
+
+</body>
+
+</html>

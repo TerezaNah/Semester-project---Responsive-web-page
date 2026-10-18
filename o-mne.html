@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="cs" data-bs-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>O mně | My Little Universe</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="site-header text-center py-4">
+
+    <div class="container">
+
+        <a href="index.html"
+           class="site-logo text-decoration-none">
+
+            MY LITTLE UNIVERSE
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN NAVIGATION -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <span class="navbar-label d-lg-none"><i class="bi bi-stars me-2"></i>MENU</span>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu"
+                aria-controls="mainMenu"
+                aria-expanded="false"
+                aria-label="Zobrazit navigaci">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center"
+             id="mainMenu">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i> DOMŮ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="knihy.html"><i class="bi bi-book me-1"></i> KNIHY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hudba.html"><i class="bi bi-music-note-beamed me-1"></i> HUDBA</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="filmy.html"><i class="bi bi-film me-1"></i> FILMY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="crafting.html"><i class="bi bi-scissors me-1"></i> TVOŘENÍ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hry.html"><i class="bi bi-controller me-1"></i> HRY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="o-mne.html"><i class="bi bi-person-heart me-1"></i> O MNĚ</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <nav aria-label="breadcrumb" class="mt-3">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="index.html">Domů</a>
+            </li>
+
+            <li class="breadcrumb-item active"
+                aria-current="page">
+                O mně
+            </li>
+
+        </ol>
+
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-hero text-center">
+
+        <p class="section-label mb-0">O TOMTO MÍSTĚ</p>
+
+        <h1>Jeden člověk. Příliš mnoho koníčků.</h1>
+
+        <p class="lead mx-auto">
+            Ráda se dozvím něco i já o vás — podělte se se mnou,
+            jak vás web baví a co se vám tady líbí.
+        </p>
+
+    </section>
+
+
+    <section class="page-section">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-lg-9">
+
+
+                <!-- Success message (shown after saving) -->
+
+                <div id="formSuccess"
+                     class="alert alert-success d-none"
+                     role="alert">
+                    <i class="bi bi-check-circle me-2"></i>
+                    Děkuji! Váš formulář byl uložen.
+                </div>
+
+
+                <div class="form-panel">
+
+                    <form id="aboutForm"
+                          class="needs-validation"
+                          novalidate>
+
+
+                        <!-- PERSONAL DETAILS -->
+
+                        <fieldset class="mb-4">
+
+                            <legend>Osobní údaje</legend>
+
+                            <div class="row g-3">
+
+                                <!-- 1. text -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="firstName" class="form-label">Jméno <span class="text-danger">*</span></label>
+
+                                    <input type="text"
+                                           class="form-control"
+                                           id="firstName"
+                                           name="firstName"
+                                           maxlength="50"
+                                           required>
+
+                                    <div class="invalid-feedback">
+                                        Zadejte prosím své jméno.
+                                    </div>
+
+                                </div>
+
+                                <!-- 2. text -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="lastName" class="form-label">Příjmení</label>
+
+                                    <input type="text"
+                                           class="form-control"
+                                           id="lastName"
+                                           name="lastName"
+                                           maxlength="50">
+
+                                </div>
+
+                                <!-- 3. email in input group -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="email" class="form-label">E-mail <span class="text-danger">*</span></label>
+
+                                    <div class="input-group has-validation">
+
+                                        <span class="input-group-text">
+                                            <i class="bi bi-envelope"></i>
+                                        </span>
+
+                                        <input type="email"
+                                               class="form-control"
+                                               id="email"
+                                               name="email"
+                                               maxlength="100"
+                                               placeholder="name@example.com"
+                                               required>
+
+                                        <div class="invalid-feedback">
+                                            Zadejte prosím platný e-mail.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 4. phone in input group -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="phone" class="form-label">Telefon</label>
+
+                                    <div class="input-group has-validation">
+
+                                        <span class="input-group-text">+420</span>
+
+                                        <input type="tel"
+                                               class="form-control"
+                                               id="phone"
+                                               name="phone"
+                                               pattern="[0-9 ]{9,11}"
+                                               placeholder="123 456 789">
+
+                                        <div class="invalid-feedback">
+                                            Zadejte 9 číslic, např. 123 456 789.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 5. username in input group -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="username" class="form-label">Instagram / přezdívka</label>
+
+                                    <div class="input-group">
+
+                                        <span class="input-group-text">@</span>
+
+                                        <input type="text"
+                                               class="form-control"
+                                               id="username"
+                                               name="username"
+                                               maxlength="30">
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 6. number + 7. date -->
+                                <div class="col-6 col-md-3">
+
+                                    <label for="age" class="form-label">Věk</label>
+
+                                    <input type="number"
+                                           class="form-control"
+                                           id="age"
+                                           name="age"
+                                           min="10"
+                                           max="120">
+
+                                </div>
+
+                                <div class="col-6 col-md-3">
+
+                                    <label for="favDate" class="form-label">Nejlepší den v roce</label>
+
+                                    <input type="date"
+                                           class="form-control"
+                                           id="favDate"
+                                           name="favDate">
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- INTERESTS -->
+
+                        <fieldset class="mb-4">
+
+                            <legend>Vaše zájmy</legend>
+
+                            <div class="row g-3">
+
+                                <!-- 8. select -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="country" class="form-label">Země</label>
+
+                                    <select class="form-select"
+                                            id="country"
+                                            name="country">
+
+                                        <option value="" selected>Vyberte...</option>
+                                        <option value="cz">Česko</option>
+                                        <option value="sk">Slovensko</option>
+                                        <option value="pl">Polsko</option>
+                                        <option value="de">Německo</option>
+                                        <option value="other">Jiná</option>
+
+                                    </select>
+
+                                </div>
+
+                                <!-- 9. select -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="favHobby" class="form-label">Nejoblíbenější koníček na tomto webu</label>
+
+                                    <select class="form-select"
+                                            id="favHobby"
+                                            name="favHobby">
+
+                                        <option value="books">Knihy</option>
+                                        <option value="music">Hudba</option>
+                                        <option value="movies">Filmy</option>
+                                        <option value="crafting">Tvoření</option>
+                                        <option value="games">Hry</option>
+
+                                    </select>
+
+                                </div>
+
+                                <!-- 10. radio -->
+                                <div class="col-12">
+
+                                    <span class="form-label d-block">Jak často web navštěvujete?</span>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="frequency"
+                                               id="freqDaily"
+                                               value="daily">
+                                        <label class="form-check-label" for="freqDaily">Denně</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="frequency"
+                                               id="freqWeekly"
+                                               value="weekly">
+                                        <label class="form-check-label" for="freqWeekly">Týdně</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="radio"
+                                               name="frequency"
+                                               id="freqFirst"
+                                               value="first">
+                                        <label class="form-check-label" for="freqFirst">Poprvé</label>
+                                    </div>
+
+                                </div>
+
+                                <!-- 11. checkboxes -->
+                                <div class="col-12">
+
+                                    <span class="form-label d-block">Co vám u mě chybí?</span>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="missing"
+                                               id="intFantasy"
+                                               value="vice-knih">
+                                        <label class="form-check-label" for="intFantasy">Více knih</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="missing"
+                                               id="intScifi"
+                                               value="vice-hudby">
+                                        <label class="form-check-label" for="intScifi">Více hudby</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="missing"
+                                               id="intDiy"
+                                               value="vice-fotek">
+                                        <label class="form-check-label" for="intDiy">Více fotek</label>
+                                    </div>
+
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               name="missing"
+                                               id="intIndie"
+                                               value="neco-jineho">
+                                        <label class="form-check-label" for="intIndie">Něco jiného</label>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-12 col-md-8">
+
+                                    <label for="missingNote" class="form-label">Upřesněte</label>
+
+                                    <input type="text"
+                                           class="form-control"
+                                           id="missingNote"
+                                           name="missingNote"
+                                           placeholder="Co konkrétně vám tady chybí?">
+
+                                </div>
+
+                                <!-- 12. range -->
+                                <div class="col-12 col-md-6">
+
+                                    <label for="coziness" class="form-label">
+                                        Ohodnoť tento web
+                                        <span class="ms-2 fw-semibold" id="cozinessVal" style="color:var(--lavender)">7 / 10</span>
+                                    </label>
+
+                                    <input type="range"
+                                           class="form-range"
+                                           id="coziness"
+                                           name="coziness"
+                                           min="1"
+                                           max="10"
+                                           step="1"
+                                           value="7"
+                                           oninput="document.getElementById('cozinessVal').textContent = this.value + ' / 10'">
+
+                                    <div class="d-flex justify-content-between" style="font-size:0.75rem;color:var(--text-dim);margin-top:0.25rem">
+                                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- MESSAGE -->
+
+                        <fieldset class="mb-4">
+
+                            <legend>Vaše zpráva</legend>
+
+                            <div class="row g-3">
+
+                                <!-- 13. textarea (floating label) -->
+                                <div class="col-12">
+
+                                    <div class="form-floating">
+
+                                        <textarea class="form-control"
+                                                  id="message"
+                                                  name="message"
+                                                  placeholder="Vaše zpráva"
+                                                  maxlength="500"
+                                                  style="height: 140px"
+                                                  required></textarea>
+
+                                        <label for="message">Doporučte mi knihu, písničku, film nebo hru <span class="text-danger">*</span></label>
+
+                                        <div class="invalid-feedback">
+                                            Napište prosím krátkou zprávu.
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                                <!-- 14. switch + consent -->
+                                <div class="col-12">
+
+                                    <div class="form-check form-switch mb-2">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               role="switch"
+                                               id="newsletter"
+                                               name="newsletter">
+                                        <label class="form-check-label" for="newsletter">
+                                            Chci dostávat informace o novém obsahu
+                                        </label>
+                                    </div>
+
+                                    <div class="form-check">
+                                        <input class="form-check-input"
+                                               type="checkbox"
+                                               id="consent"
+                                               name="consent"
+                                               required>
+                                        <label class="form-check-label" for="consent">
+                                            Souhlasím s tím, že mé odpovědi mohou být použity na tomto webu
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            Před uložením musíte souhlasit.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </fieldset>
+
+
+                        <!-- BUTTONS -->
+
+                        <div class="d-flex flex-wrap gap-2 justify-content-end">
+
+                            <button type="reset"
+                                    class="btn btn-outline-light">
+                                <i class="bi bi-arrow-counterclockwise me-1"></i> Vynulovat
+                            </button>
+
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                <i class="bi bi-save me-1"></i> Uložit
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <div class="text-center mt-4">
+
+                    <button type="button"
+                            class="btn btn-outline-light"
+                            data-bs-toggle="modal"
+                            data-bs-target="#aboutModal">
+                        <i class="bi bi-info-circle me-2"></i>O tomto webu
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- MODAL -->
+
+<div class="modal fade"
+     id="aboutModal"
+     tabindex="-1"
+     aria-labelledby="aboutModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 class="modal-title fs-5"
+                    id="aboutModalLabel">
+                    My Little Universe
+                </h2>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Zavřít">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p>
+                    Tento web vznikl jako semestrální projekt
+                    a představuje některé z mých oblíbených
+                    koníčků a zájmů.
+                </p>
+
+                <p class="mb-0">
+                    Je vytvořen pomocí Bootstrapu 5, Bootstrap Icons
+                    a DataTables.
+                </p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Zavřít
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+    <div class="container text-center">
+
+        <p class="footer-logo mb-2">MY LITTLE UNIVERSE</p>
+
+        <p class="small text-secondary mb-3">
+            knihy • hudba • filmy • tvoření • hry
+        </p>
+
+        <hr class="footer-line">
+
+        <p class="small text-secondary mb-0">
+            © 2026 My Little Universe • Semestrální projekt
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+    // Client-side validation. The site has no backend,
+    // so a valid form only shows a confirmation message.
+    const form = document.getElementById("aboutForm");
+    const success = document.getElementById("formSuccess");
+
+    form.addEventListener("submit", function (event) {
+
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+
+            event.stopPropagation();
+            success.classList.add("d-none");
+
+        } else {
+
+            success.classList.remove("d-none");
+            success.scrollIntoView({ behavior: "smooth", block: "center" });
+            form.reset();
+            form.classList.remove("was-validated");
+            return;
+
+        }
+
+        form.classList.add("was-validated");
+
+    });
+
+    form.addEventListener("reset", function () {
+
+        form.classList.remove("was-validated");
+
+    });
+
+</script>
+
+</body>
+
+</html>

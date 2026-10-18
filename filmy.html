@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="cs" data-bs-theme="dark">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Filmy | My Little Universe</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="site-header text-center py-4">
+
+    <div class="container">
+
+        <a href="index.html"
+           class="site-logo text-decoration-none">
+
+            MY LITTLE UNIVERSE
+
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- MAIN NAVIGATION -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <span class="navbar-label d-lg-none"><i class="bi bi-stars me-2"></i>MENU</span>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainMenu"
+                aria-controls="mainMenu"
+                aria-expanded="false"
+                aria-label="Zobrazit navigaci">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-center"
+             id="mainMenu">
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="bi bi-house me-1"></i> DOMŮ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="knihy.html"><i class="bi bi-book me-1"></i> KNIHY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hudba.html"><i class="bi bi-music-note-beamed me-1"></i> HUDBA</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="filmy.html"><i class="bi bi-film me-1"></i> FILMY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="crafting.html"><i class="bi bi-scissors me-1"></i> TVOŘENÍ</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="hry.html"><i class="bi bi-controller me-1"></i> HRY</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="o-mne.html"><i class="bi bi-person-heart me-1"></i> O MNĚ</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+    <!-- BREADCRUMB -->
+
+    <nav aria-label="breadcrumb" class="mt-3">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="index.html">Domů</a>
+            </li>
+
+            <li class="breadcrumb-item active"
+                aria-current="page">
+                Filmy
+            </li>
+
+        </ol>
+
+    </nav>
+
+
+    <!-- PAGE HEADER -->
+
+    <section class="page-hero text-center">
+
+        <h1 class="section-label film-title">
+            <span class="film-title-main">FILMOVÉ</span>
+            <span class="film-title-sub">VEČERY</span>
+        </h1>
+
+        <p class="lead mx-auto">
+            Filmy a seriály, které vám zůstanou v hlavě ještě dlouho
+            po závěrečných titulcích. Podrobnosti zobrazíte kliknutím na plakát.
+        </p>
+
+    </section>
+
+
+    <!-- TOP 10: sem přijdou plakáty (obrázek vložte místo .poster-slot, viz komentář) -->
+
+    <section class="page-section">
+
+        <div class="text-center mb-4">
+
+            <p class="section-label mb-1">MOJE NEJOBLÍBENĚJŠÍ</p>
+
+            <h2 class="h3 heading-hand">TOP 10</h2>
+
+        </div>
+
+        <!--
+            Plakát doplníte tak, že element <div class="poster-slot">…</div>
+            nahradíte tímto:
+            <img src="images/filmy/nazev.jpg" class="poster-image" alt="Plakát filmu …" width="300" height="450">
+        -->
+
+        <div class="row row-cols-2 row-cols-md-5 g-3">
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Requiem%20za%20sen%202000%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Requiem za sen: přehrát trailer na YouTube">
+                    <img src="images/filmy/requiemzasen.png" alt="Requiem" class="poster-image">
+                    <span class="poster-title">Requiem za sen</span>
+                    <span class="poster-note">Instantní depka, která vám bude rezonovat v hlavě ještě hodně dlouho</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Pozem%C5%A1%C5%A5an%20The%20Man%20from%20Earth%202007%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Pozemšťan: přehrát trailer na YouTube">
+                    <img src="images/filmy/pozemstan.png" alt="pozemstan" class="poster-image">
+                    <span class="poster-title">Pozemšťan</span>
+                    <span class="poster-note">Existenční dilema v komorním stylu</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Lidsk%C3%A1%20stono%C5%BEka%20The%20Human%20Centipede%202009%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Lidská stonožka: přehrát trailer na YouTube">
+                    <img src="images/filmy/stonozka.png" alt="Lidská stonožka" class="poster-image">
+                    <span class="poster-title">Lidská stonožka</span>
+                    <span class="poster-note">Film co není pro každého a odvážní už vědí</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Hv%C4%9Bzdn%C3%BD%20prach%20Stardust%202007%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Hvězdný prach: přehrát trailer na YouTube">
+                    <img src="images/filmy/hvezdnyprach.png" alt="Hvězdný prach" class="poster-image">
+                    <span class="poster-title">Hvězdný prach</span>
+                    <span class="poster-note">Má nejoblíbenější pohádka</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Kontakt%20Contact%201997%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Kontakt: přehrát trailer na YouTube">
+                    <img src="images/filmy/kontakt.png" alt="Kontakt" class="poster-image">
+                    <span class="poster-title">Kontakt</span>
+                    <span class="poster-note">Sci-fi klasika s filozofickým přesahem. Doporučuji také knihu podle které byl film natočen.</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Matrix%201999%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Matrix: přehrát trailer na YouTube">
+                    <img src="images/filmy/matrix.png" alt="Matrix" class="poster-image">
+                    <span class="poster-title">Matrix</span>
+                    <span class="poster-note">Matrix viděli určitě všichni sci-fi nadšenci. Naprostá klasika, kterou si vždy ráda pustím</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Constantine%202005%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Constantine: přehrát trailer na YouTube">
+                    <img src="images/filmy/constantine.png" alt="Constantine" class="poster-image">
+                    <span class="poster-title">Constantine</span>
+                    <span class="poster-note">Keanu Reeves mezi anděly a démony. Už několik let netrpělivě vyhlížíme pokračování.</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Rivalov%C3%A9%20Happy%20Gilmore%201996%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Rivalové: přehrát trailer na YouTube">
+                    <img src="images/filmy/rivalove.png" alt="Rivalove" class="poster-image">
+                    <span class="poster-title">Rivalové</span>
+                    <span class="poster-note">Komedie nevyhledávám, ale tuhle jako jedinou jsem viděla několikrát.</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Coraline+2009+trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Koralina: přehrát trailer na YouTube">
+                    <img src="images/filmy/koralina.png" alt="Koralina" class="poster-image">
+                    <span class="poster-title">Koralina</span>
+                    <span class="poster-note">Milovaná Koralina a její tajuplný svět.</span>
+                </a>
+            </div>
+
+            <div class="col">
+                <a class="poster-card"
+                   href="https://www.youtube.com/results?search_query=Interstellar%202014%20trailer"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Interstellar: přehrát trailer na YouTube">
+                    <img src="images/filmy/interstellar.png" alt="Interstellar" class="poster-image">
+                    <span class="poster-title">Interstellar</span>
+                    <span class="poster-note">Nolanův Masterpiece naprostý klenot a horská dráha emocí.</span>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHCI VIDĚT -->
+
+    <section class="page-section">
+
+        <div class="text-center mb-4">
+
+            <p class="section-label mb-1">ČEKÁ NA MĚ</p>
+
+            <h2 class="h3 heading-hand">Chci vidět</h2>
+
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-12 col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Čas probuzení</span><span class="small text-secondary">1990 • Drama, Životopisný</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Ucho</span><span class="small text-secondary">1970 • Drama, Psychologický</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Fjord</span><span class="small text-secondary">2026 • Drama</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Let číslo 93</span><span class="small text-secondary">2006 • Historický, Drama</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Neúplatní</span><span class="small text-secondary">1987 • Krimi, Drama</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>TimeScapes</span><span class="small text-secondary">2012 • Dokumentární</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Volyň</span><span class="small text-secondary">2016 • Drama, Historický</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Výměna</span><span class="small text-secondary">2008 • Drama, Historický</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Casablanca</span><span class="small text-secondary">1942 • Drama, Romantický</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Jak ukrást Venuši</span><span class="small text-secondary">1966 • Komedie, Krimi</span></li>
+                </ul>
+            </div>
+
+            <div class="col-12 col-md-6">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Jeden život</span><span class="small text-secondary">2023 • Drama, Životopisný</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Marcela</span><span class="small text-secondary">2006 • Dokumentární</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Spasitel</span><span class="small text-secondary">2026 • Sci-Fi, Dobrodružný</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Vlasy</span><span class="small text-secondary">1979 • Muzikál, Komedie</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Dogville</span><span class="small text-secondary">2003 • Drama, Thriller</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>In Search of Darkness</span><span class="small text-secondary">2019 • Dokumentární</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Naprostí cizinci</span><span class="small text-secondary">2016 • Komedie, Drama</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Nebe nad Berlínem</span><span class="small text-secondary">1987 • Fantasy, Drama</span></li>
+                    <li class="list-group-item d-flex justify-content-between align-items-baseline gap-3"><span>Neuvěřitelný zmenšující se muž</span><span class="small text-secondary">1957 • Sci-Fi, Thriller</span></li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- NEDÁVNO VIDĚNO + RECENZE -->
+
+    <section class="page-section">
+
+        <div class="text-center mb-4">
+
+            <p class="section-label mb-1">NA ČERSTVO</p>
+
+            <h2 class="h3 heading-hand">Nedávno viděno</h2>
+
+        </div>
+
+        <div class="recent-panel">
+
+            <article class="book-card">
+
+                <div class="book-card-cover">
+                    <img src="images/filmy/holubi.png" alt="Kdyby se holubi proměnili ve zlato" class="poster-image">
+                </div>
+
+                <div class="book-card-body">
+
+                    <div class="book-head">
+                        <h3 class="book-title">Kdyby se holubi proměnili ve zlato</h3>
+                        <p class="book-author">2026 • Česko / Slovensko • Dokumentární</p>
+                    </div>
+
+                    <p class="icon-accent mb-3" aria-label="Hodnocení: 5 z 5 hvězdiček">
+                        <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i> <i class="bi bi-star-fill"></i>
+                    </p>
+
+                    <p class="book-blurb mb-0">
+                        Velmi osobní film Pepy Lubojacki, který se nám snaží ukázat život ne/obyčejné české rodiny která je protkaná vzorci, které se pořád opakují, opakují, opakují. Život není černobílý a odpovědi co je správné se hledají těžko.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <section class="page-section"
+             aria-labelledby="filmCommentsTitle">
+
+        <div class="text-center mb-4">
+
+            <p class="section-label mb-1">
+                <i class="bi bi-chat-heart me-1"></i> KOMENTÁŘE
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            <!-- Formulář -->
+
+            <div class="col-12 col-lg-5">
+
+                <div class="form-panel">
+
+                    <form id="filmCommentForm"
+                          class="needs-validation"
+                          novalidate>
+
+                        <div class="mb-3">
+
+                            <label for="filmCommentName" class="form-label">Jméno</label>
+
+                            <div class="input-group has-validation">
+
+                                <span class="input-group-text">
+                                    <i class="bi bi-person"></i>
+                                </span>
+
+                                <input type="text"
+                                       class="form-control"
+                                       id="filmCommentName"
+                                       maxlength="40"
+                                       required>
+
+                                <div class="invalid-feedback">
+                                    Zadejte prosím své jméno.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="mb-3">
+
+                            <label for="filmCommentText" class="form-label">Komentář</label>
+
+                            <textarea class="form-control"
+                                      id="filmCommentText"
+                                      rows="4"
+                                      maxlength="500"
+                                      required></textarea>
+
+                            <div class="invalid-feedback">
+                                Napište prosím krátký komentář.
+                            </div>
+
+                        </div>
+
+                        <button type="submit"
+                                class="btn btn-primary">
+                            <i class="bi bi-send me-1"></i> Odeslat komentář
+                        </button>
+
+                    </form>
+
+                    <p class="small text-secondary mt-3 mb-0">
+                        Komentáře se ukládají jen ve vašem prohlížeči
+                        a ostatní návštěvníci je neuvidí.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <!-- Seznam komentářů -->
+
+            <div class="col-12 col-lg-7">
+
+                <div id="filmCommentList"
+                     aria-live="polite">
+                </div>
+
+                <p id="filmCommentEmpty"
+                   class="text-secondary text-center mb-0">
+                    Zatím tu nejsou žádné komentáře. Buďte první!
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="page-section">
+
+        <div class="text-center mt-5">
+
+            <p class="section-label">CO DÁL?</p>
+
+            <a href="hudba.html"
+               class="btn btn-outline-primary me-2 mb-2">
+                <i class="bi bi-music-note-beamed me-1"></i> Filmová hudba
+            </a>
+
+            <a href="hry.html"
+               class="btn btn-warning mb-2">
+                <i class="bi bi-controller me-1"></i> Nebo si zahrát
+            </a>
+
+            <a href="index.html"
+               class="btn btn-link mb-2">
+                Zpět na úvod
+            </a>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- MODAL (filled by JavaScript from data-* attributes) -->
+
+<div class="modal fade"
+     id="movieModal"
+     tabindex="-1"
+     aria-labelledby="movieModalLabel"
+     aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+
+                <h2 class="modal-title fs-5"
+                    id="movieModalLabel">
+                    Film
+                </h2>
+
+                <button type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Zavřít">
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <p class="mb-0" id="movieModalText"></p>
+
+            </div>
+
+            <div class="modal-footer">
+
+                <button type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal">
+                    Zavřít
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+    <div class="container text-center">
+
+        <p class="footer-logo mb-2">MY LITTLE UNIVERSE</p>
+
+        <p class="small text-secondary mb-3">
+            knihy • hudba • filmy • tvoření • hry
+        </p>
+
+        <hr class="footer-line">
+
+        <p class="small text-secondary mb-0">
+            © 2026 My Little Universe • Semestrální projekt
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/comments-filmy.js"></script>
+
+<script>
+
+    // Fill the modal with data from the button that opened it
+    const movieModal = document.getElementById("movieModal");
+
+    movieModal.addEventListener("show.bs.modal", function (event) {
+
+        const button = event.relatedTarget;
+
+        document.getElementById("movieModalLabel").textContent =
+            button.getAttribute("data-title");
+
+        document.getElementById("movieModalText").textContent =
+            button.getAttribute("data-info");
+
+    });
+
+</script>
+
+</body>
+
+</html>

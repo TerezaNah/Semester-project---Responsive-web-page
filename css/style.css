@@ -1,0 +1,2121 @@
+@font-face {
+    font-family: "SimpleHandmade";
+    src: url("../fonts/SimpleHandmade.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* ==========================================
+   MY LITTLE UNIVERSE
+   VLASTNÍ CSS
+
+   Obsah:
+   1. Proměnné (barvy, písmo, mezery)
+   2. Základ stránky
+   3. Hlavička a navigace
+   4. Carousel
+   5. Tlačítka
+   6. Typografie sekcí
+   7. Úvodní stránka (karty, odznaky, about)
+   8. Modal a patička
+   9. Podstránky
+   10. Záložky
+   11. Knižní deník (Právě čtu, Oblíbené, Seznam přání)
+   12. Komentáře
+   13. Formuláře
+   14. Tabulka a stránkování
+   15. Konfigurátor náramku
+   16. Akordeon
+   17. Responzivní zobrazení
+========================================== */
+
+
+/* ==========================================
+   1. PROMĚNNÉ
+========================================== */
+
+:root {
+
+    /* Povrchy */
+    --bg: #0d0b12;
+    --surface: #16121c;
+    --surface-raised: #1b1523;
+    --surface-inset: #0f0c14;
+    --border: #2a2231;
+    --border-strong: #3b3043;
+
+    /* Text */
+    --text: #f2edf5;
+    --text-muted: #b7adbe;
+    --text-dim: #9a8fa4;
+
+    /* Levandulové a fialové akcenty */
+    --lavender: #c9a7e8;
+    --purple: #a979cf;
+    --purple-bright: #8b5db4;
+    --purple-deep: #75489b;
+    --purple-hover: #9362bb;
+    --purple-pressed: #5f3880;
+
+    /* Teplý krémový akcent, jen pro vybrané důležité detaily */
+    --cream: #e9dfc9;
+
+    /* Písmo: ručně psané jen pro logo, patkové pro nadpisy */
+    --font-hand: "SimpleHandmade", cursive;
+    --font-ui: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, "Times New Roman", serif;
+
+    /* Tvary a mezery */
+    --radius: 18px;
+    --radius-sm: 10px;
+    --space-section: 3.5rem;
+    --focus-ring: 0 0 0 0.2rem rgba(201, 167, 232, 0.4);
+}
+
+
+/* Přebarvení modrých výchozích hodnot Bootstrapu na naši paletu */
+
+:root[data-bs-theme="dark"] {
+    --bs-body-bg: var(--bg);
+    --bs-body-color: var(--text);
+    --bs-secondary-rgb: 166, 155, 177;
+    --bs-link-color-rgb: 201, 167, 232;
+    --bs-link-hover-color-rgb: 233, 223, 201;
+    --bs-border-color: var(--border);
+}
+
+
+/* ==========================================
+   2. ZÁKLAD STRÁNKY
+========================================== */
+
+body {
+    background-color: var(--bg);
+    /* Velmi jemná levandulová záře při horním okraji, jen pro atmosféru */
+    background-image: radial-gradient(ellipse 70% 380px at 50% 0, rgba(169, 121, 207, 0.09), transparent);
+    background-repeat: no-repeat;
+    color: var(--text);
+    font-family: var(--font-ui);
+    line-height: 1.6;
+}
+
+::selection {
+    background-color: rgba(201, 167, 232, 0.35);
+    color: var(--text);
+}
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: 2px;
+}
+
+.icon-accent {
+    color: var(--purple);
+}
+
+/* Všechny nadpisy: světle žlutá (krémová) */
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    color: var(--cream);
+}
+
+/* Nadpis sekce: patkové písmo */
+
+.heading-hand {
+    font-family: var(--font-serif);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+}
+
+
+/* ==========================================
+   3. HLAVIČKA A NAVIGACE
+========================================== */
+
+/* Hlavička: několik drobných hvězd v nízkých dlaždicích různé šířky */
+
+.site-header {
+    background-color: var(--bg);
+    background-image:
+        radial-gradient(circle at 37px 22px, rgba(233, 223, 201, 0.9) 0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 121px 58px, rgba(201, 167, 232, 0.85) 0 1.6px, transparent 2.3px),
+        radial-gradient(circle at 203px 31px, rgba(233, 223, 201, 0.65) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 59px 66px, rgba(233, 223, 201, 0.7) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 167px 14px, rgba(201, 167, 232, 0.7) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 274px 48px, rgba(233, 223, 201, 0.8) 0 1.4px, transparent 2px);
+    background-size:
+        229px 78px,
+        313px 82px,
+        257px 74px,
+        181px 80px,
+        347px 76px,
+        401px 84px;
+    padding-top: 1.1rem !important;
+    padding-bottom: 0.8rem !important;
+}
+
+.site-logo {
+    font-family: var(--font-hand);
+    color: var(--cream);
+    font-size: 3rem;
+    font-weight: normal;
+    line-height: 1.1;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 1.2px var(--cream);
+    text-shadow: 0 0 18px rgba(201, 167, 232, 0.55);
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.site-logo:hover,
+.site-logo:focus-visible {
+    color: var(--lavender);
+    -webkit-text-stroke-color: var(--lavender);
+    text-shadow: 0 0 22px rgba(169, 121, 207, 0.7);
+}
+
+
+.navbar {
+    background-color: #15111b;
+    border-top: 1px solid #2b2333;
+    border-bottom: 1px solid #2b2333;
+}
+
+.navbar .nav-link {
+    position: relative;
+    margin: 0 4px;
+    padding: 0.55rem 0.7rem;
+    border-radius: 8px;
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    letter-spacing: 0.08em;
+    transition: color 0.25s, background-color 0.25s;
+}
+
+.navbar .nav-link:hover {
+    color: var(--lavender);
+    background-color: rgba(201, 167, 232, 0.08);
+}
+
+.navbar .nav-link:focus-visible {
+    color: var(--lavender);
+    outline: 0;
+    box-shadow: var(--focus-ring);
+}
+
+.navbar .nav-link.active {
+    color: var(--cream);
+}
+
+.navbar-toggler:focus {
+    box-shadow: var(--focus-ring);
+}
+
+.navbar-label {
+    color: var(--lavender);
+    font-size: 0.88rem;
+    letter-spacing: 0.2em;
+}
+
+/* Aktivní stránka je na širokém displeji podtržená */
+
+@media (min-width: 992px) {
+
+    .navbar .nav-link.active::after {
+        content: "";
+        position: absolute;
+        left: 0.7rem;
+        right: 0.7rem;
+        bottom: 0.2rem;
+        height: 2px;
+        border-radius: 2px;
+        background-color: var(--lavender);
+    }
+
+}
+
+
+.breadcrumb {
+    margin-bottom: 0.75rem;
+    font-size: 0.82rem;
+    --bs-breadcrumb-divider-color: var(--text-dim);
+}
+
+.breadcrumb a {
+    color: var(--purple);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--cream);
+    text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+    color: var(--text-dim);
+}
+
+
+/* ==========================================
+   4. CAROUSEL
+========================================== */
+
+#hobbyCarousel {
+    --bs-carousel-indicator-active-bg: var(--cream);
+    --bs-carousel-control-icon-filter: none;
+    --bs-carousel-caption-color: var(--text);
+
+    overflow: hidden;
+    border-radius: var(--radius);
+    border: 1px solid #2b2333;
+}
+
+.carousel-item {
+    position: relative;
+}
+
+.carousel-image {
+    height: 460px;
+    object-fit: cover;
+}
+
+/* Tmavá vrstva přes obrázek */
+
+.carousel-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(8, 6, 12, 0.92),
+        rgba(8, 6, 12, 0.25)
+    );
+}
+
+.carousel-caption {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    text-align: left;
+    left: 8%;
+    right: 45%;
+}
+
+.carousel-caption h2 {
+    color: var(--cream);
+    font-family: var(--font-serif);
+    font-size: 2.4rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.carousel-caption p {
+    color: #d2cad8;
+}
+
+.carousel-small-title {
+    color: var(--lavender) !important;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+#hobbyCarousel:hover .carousel-control-prev,
+#hobbyCarousel:hover .carousel-control-next {
+    opacity: 1;
+}
+
+.carousel-control-prev:focus-visible,
+.carousel-control-next:focus-visible,
+.carousel-indicators [data-bs-target]:focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: -4px;
+    opacity: 1;
+}
+
+
+/* ==========================================
+   5. TLAČÍTKA
+========================================== */
+
+.btn {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+/* Jednotný fialový rámeček zaostření pro všechny varianty */
+
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-danger,
+.btn-warning,
+.btn-info,
+.btn-outline-primary,
+.btn-outline-light,
+.btn-outline-danger {
+    --bs-btn-focus-shadow-rgb: 201, 167, 232;
+}
+
+.btn-primary {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--purple-deep);
+    --bs-btn-border-color: var(--purple-deep);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--purple-hover);
+    --bs-btn-hover-border-color: var(--purple-hover);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--purple-pressed);
+    --bs-btn-active-border-color: var(--purple-pressed);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--lavender);
+    --bs-btn-border-color: var(--purple-deep);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--purple-deep);
+    --bs-btn-hover-border-color: var(--purple-deep);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--purple-pressed);
+    --bs-btn-active-border-color: var(--purple-pressed);
+}
+
+.btn-outline-light {
+    --bs-btn-color: #d8cfdd;
+    --bs-btn-border-color: #5d4b68;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--purple-deep);
+    --bs-btn-hover-border-color: var(--purple-deep);
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--purple-pressed);
+    --bs-btn-active-border-color: var(--purple-pressed);
+}
+
+.btn-secondary {
+    --bs-btn-color: var(--text);
+    --bs-btn-bg: #2a2231;
+    --bs-btn-border-color: var(--border-strong);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #372d42;
+    --bs-btn-hover-border-color: #4a3d57;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #231c2a;
+    --bs-btn-active-border-color: #4a3d57;
+}
+
+/* Další styly tlačítek v tlumených barvách, aby ladily s paletou */
+
+.btn-success {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #3f6b57;
+    --bs-btn-border-color: #3f6b57;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #4a7c66;
+    --bs-btn-hover-border-color: #4a7c66;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #365c4b;
+    --bs-btn-active-border-color: #365c4b;
+}
+
+.btn-danger {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #a14a5a;
+    --bs-btn-border-color: #a14a5a;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #b45a6b;
+    --bs-btn-hover-border-color: #b45a6b;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #8a3e4d;
+    --bs-btn-active-border-color: #8a3e4d;
+}
+
+.btn-info {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #3f7184;
+    --bs-btn-border-color: #3f7184;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #4b8196;
+    --bs-btn-hover-border-color: #4b8196;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #345f6f;
+    --bs-btn-active-border-color: #345f6f;
+}
+
+.btn-warning {
+    --bs-btn-color: #1a1420;
+    --bs-btn-bg: var(--cream);
+    --bs-btn-border-color: var(--cream);
+    --bs-btn-hover-color: #1a1420;
+    --bs-btn-hover-bg: #f3ebd8;
+    --bs-btn-hover-border-color: #f3ebd8;
+    --bs-btn-active-color: #1a1420;
+    --bs-btn-active-bg: #d9cdb2;
+    --bs-btn-active-border-color: #d9cdb2;
+}
+
+.btn-link {
+    --bs-btn-color: var(--lavender);
+    --bs-btn-hover-color: var(--cream);
+    --bs-btn-active-color: var(--cream);
+}
+
+a.link-accent {
+    color: var(--lavender);
+    text-decoration: none;
+    border-bottom: 1px dashed var(--purple-deep);
+    transition: color 0.2s, border-color 0.2s;
+}
+
+a.link-accent:hover {
+    color: var(--cream);
+    border-bottom-color: var(--cream);
+}
+
+
+/* ==========================================
+   6. TYPOGRAFIE SEKCÍ
+========================================== */
+
+.section-label,
+.card-category {
+    color: var(--purple);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.section-title {
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.section-text {
+    max-width: 650px;
+    color: var(--text-muted);
+    line-height: 1.75;
+}
+
+
+/* ==========================================
+   7. ÚVODNÍ STRÁNKA
+========================================== */
+
+.intro-section {
+    padding-top: var(--space-section);
+    padding-bottom: var(--space-section);
+}
+
+.currently-section {
+    padding-bottom: 4.5rem;
+}
+
+.currently-title {
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+/* Karty */
+
+.hobby-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 8px 22px rgba(0, 0, 0, 0.3);
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.hobby-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--purple-deep);
+    background-color: var(--surface-raised);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset, 0 12px 28px rgba(0, 0, 0, 0.4);
+}
+
+.hobby-card .card-title {
+    color: var(--cream);
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.6rem;
+}
+
+.hobby-card .card-text {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.card-category {
+    margin-bottom: 1rem;
+}
+
+/* Odznaky */
+
+.badge {
+    border: 1px solid var(--border-strong);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    padding: 0.5em 0.85em;
+}
+
+.badge.text-bg-dark {
+    color: var(--lavender) !important;
+}
+
+.hobby-card .badge {
+    margin-top: 0.5rem;
+}
+
+/* Stavové odznaky: tlumené odstíny místo výchozích sytých barev */
+
+.badge.text-bg-success {
+    background-color: rgba(63, 107, 87, 0.3) !important;
+    border-color: rgba(98, 160, 130, 0.55);
+    color: #9ad1b5 !important;
+}
+
+.badge.text-bg-warning {
+    background-color: rgba(233, 223, 201, 0.1) !important;
+    border-color: rgba(233, 223, 201, 0.4);
+    color: var(--cream) !important;
+}
+
+.badge.text-bg-info {
+    background-color: rgba(63, 113, 132, 0.3) !important;
+    border-color: rgba(110, 170, 190, 0.5);
+    color: #9cc7d6 !important;
+}
+
+/* O místě */
+
+.about-preview {
+    padding-bottom: 4.5rem;
+}
+
+.about-preview-inner {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 3rem 1.8rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+}
+
+.about-preview h2 {
+    font-family: var(--font-serif);
+    font-size: 1.9rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-top: 0.6rem;
+    margin-bottom: 1rem;
+}
+
+.about-preview .btn {
+    margin-top: 1rem;
+}
+
+
+/* ==========================================
+   8. MODAL A PATIČKA
+========================================== */
+
+.modal-content {
+    background-color: #17121d;
+    border: 1px solid #3a2c45;
+    border-radius: var(--radius);
+}
+
+.modal-header,
+.modal-footer {
+    border-color: #302638;
+}
+
+.modal-title {
+    font-weight: 500;
+}
+
+/* Patička jako klidná noční obloha: několik drobných hvězd
+   v různě velkých dlaždicích, aby se neopakovaly do mřížky. */
+
+.site-footer {
+    background-color: #09070c;
+    background-image:
+        radial-gradient(circle at 24px 38px, rgba(233, 223, 201, 0.95) 0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 112px 84px, rgba(233, 223, 201, 0.7) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 190px 22px, rgba(201, 167, 232, 0.95) 0 1.6px, transparent 2.3px),
+        radial-gradient(circle at 66px 120px, rgba(201, 167, 232, 0.7) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 150px 150px, rgba(233, 223, 201, 0.65) 0 1px, transparent 1.6px),
+        radial-gradient(circle at 310px 60px, rgba(233, 223, 201, 0.85) 0 1.2px, transparent 1.8px),
+        radial-gradient(circle at 90px 210px, rgba(233, 223, 201, 0.7) 0 1.6px, transparent 2.3px),
+        radial-gradient(ellipse 60% 120% at 50% 130%, rgba(169, 121, 207, 0.14), transparent);
+    background-size:
+        233px 173px,
+        271px 197px,
+        353px 241px,
+        197px 229px,
+        311px 263px,
+        419px 281px,
+        373px 307px,
+        100% 100%;
+    border-top: 1px solid #251e2c;
+    padding-top: 2.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.footer-logo {
+    color: var(--lavender);
+    font-family: var(--font-hand);
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.footer-line {
+    border-color: #332a3a;
+    margin-top: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+
+/* ==========================================
+   9. PODSTRÁNKY
+========================================== */
+
+.page-hero {
+    padding-top: 1.25rem;
+    padding-bottom: 1.75rem;
+}
+
+/* Hlavní nadpisy stránek: patkové písmo ze systému (nic se nestahuje) */
+
+.page-hero h1,
+.section-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 1.3rem + 1.4vw, 2.2rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.3;
+    letter-spacing: 0.01em;
+}
+
+.page-hero h1 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.page-hero h1.section-label {
+    font-style: normal;
+}
+
+/* Drobná levandulová čárka pod nadpisem podstránky */
+
+.page-hero h1::after {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin: 0.9rem auto 0;
+    background-color: var(--purple);
+    border-radius: 2px;
+}
+
+.page-hero p.lead {
+    max-width: 36rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 0;
+}
+
+
+/* Nadpis stránky Hry (hry.html) — pro návrat stačí smazat tento blok
+   a vrátit v hry.html původní <h1 class="section-label">HRY A PODIVNÉ SVĚTY</h1> */
+
+.page-hero h1.hry-title {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.hry-title-main {
+    display: block;
+    padding-left: 0.3em; /* vyrovná mezeru za posledním písmenem */
+    font-size: clamp(3rem, 2rem + 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    text-shadow:
+        0 0 18px rgba(169, 121, 207, 0.55),
+        0 0 42px rgba(117, 72, 155, 0.45);
+}
+
+.hry-title-sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--lavender);
+}
+
+.hry-title-sub::before,
+.hry-title-sub::after {
+    content: "";
+    flex: 0 1 4rem;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--purple));
+}
+
+.hry-title-sub::after {
+    background: linear-gradient(to left, transparent, var(--purple));
+}
+
+
+/* Nadpis stránky Tvoření (crafting.html) — pro návrat vrátit v crafting.html
+   původní <h1 class="section-label">DROBNOSTI VYROBENÉ RUČNĚ</h1> a tento blok smazat */
+
+.page-hero h1.craft-title {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.craft-title-main {
+    display: block;
+    padding-left: 0.2em; /* vyrovná mezeru za posledním písmenem */
+    font-size: clamp(1.9rem, 0.9rem + 5.2vw, 4.2rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    color: var(--cream);
+    text-shadow:
+        0 0 18px rgba(169, 121, 207, 0.55),
+        0 0 42px rgba(117, 72, 155, 0.45);
+}
+
+.craft-title-sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--lavender);
+}
+
+/* Po stranách podnadpisu „korálky“: tři kuličky různé velikosti */
+.craft-title-sub::before,
+.craft-title-sub::after {
+    content: "";
+    flex: none;
+    width: 0.3rem;
+    height: 0.3rem;
+    border-radius: 50%;
+    background-color: var(--purple);
+    box-shadow:
+        -0.7rem 0 0 -0.04rem var(--purple-bright),
+        -1.3rem 0 0 -0.08rem var(--purple-deep);
+}
+
+.craft-title-sub::after {
+    box-shadow:
+        0.7rem 0 0 -0.04rem var(--purple-bright),
+        1.3rem 0 0 -0.08rem var(--purple-deep);
+}
+
+/* Nadpis stránky Filmy (filmy.html) — pro návrat vrátit ve filmy.html
+   původní <h1 class="section-label">FILMOVÉ VEČERY</h1> a tento blok smazat */
+
+.page-hero h1.film-title {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.film-title-main {
+    display: block;
+    padding-left: 0.25em; /* vyrovná mezeru za posledním písmenem */
+    font-size: clamp(2.4rem, 1.2rem + 6vw, 5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.25em;
+    color: var(--cream);
+    text-shadow:
+        0 0 18px rgba(169, 121, 207, 0.55),
+        0 0 42px rgba(117, 72, 155, 0.45);
+}
+
+.film-title-sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--lavender);
+}
+
+/* Po stranách podnadpisu filmový pás s perforací */
+.film-title-sub::before,
+.film-title-sub::after {
+    content: "";
+    flex: 0 1 5rem;
+    height: 0.7rem;
+    border-top: 1px solid var(--purple);
+    border-bottom: 1px solid var(--purple);
+    background: repeating-linear-gradient(
+        to right,
+        var(--purple-deep) 0,
+        var(--purple-deep) 0.3rem,
+        transparent 0.3rem,
+        transparent 0.6rem
+    ) center / 100% 0.3rem no-repeat;
+}
+
+
+
+
+/* Nadpis stránky Hudba (hudba.html) — pro návrat vrátit v hudba.html
+   původní <h1 class="section-label">HUDEBNÍ KNIHOVNA</h1> a tento blok smazat */
+
+.page-hero h1.hudba-title {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.hudba-title-main {
+    display: block;
+    padding-left: 0.25em; /* vyrovná mezeru za posledním písmenem */
+    font-size: clamp(2.3rem, 1.2rem + 5.6vw, 4.8rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.25em;
+    color: var(--cream);
+    text-shadow:
+        0 0 18px rgba(169, 121, 207, 0.55),
+        0 0 42px rgba(117, 72, 155, 0.45);
+}
+
+.hudba-title-sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--lavender);
+}
+
+/* Po stranách podnadpisu miniaturní equalizer */
+.hudba-title-sub::before,
+.hudba-title-sub::after {
+    content: "";
+    flex: none;
+    width: calc(1.4rem + 2px);
+    height: 0.9rem;
+    background:
+        linear-gradient(var(--purple), var(--purple)) 0 100% / 2px 40% no-repeat,
+        linear-gradient(var(--purple), var(--purple)) 0.35rem 100% / 2px 80% no-repeat,
+        linear-gradient(var(--purple), var(--purple)) 0.7rem 100% / 2px 55% no-repeat,
+        linear-gradient(var(--purple), var(--purple)) 1.05rem 100% / 2px 100% no-repeat,
+        linear-gradient(var(--purple), var(--purple)) 1.4rem 100% / 2px 30% no-repeat;
+}
+
+
+/* Nadpis stránky Knihy (knihy.html) — pro návrat vrátit v knihy.html
+   původní <h1 class="section-label">KNIHY A PŘÍBĚHY</h1> a tento blok smazat */
+
+.page-hero h1.knihy-title {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+}
+
+.knihy-title-main {
+    display: block;
+    padding-left: 0.3em; /* vyrovná mezeru za posledním písmenem */
+    font-size: clamp(3rem, 2rem + 6vw, 5.5rem);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0.3em;
+    color: var(--cream);
+    text-shadow:
+        0 0 18px rgba(169, 121, 207, 0.55),
+        0 0 42px rgba(117, 72, 155, 0.45);
+}
+
+.knihy-title-sub {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 0.9rem;
+    font-family: var(--font-ui);
+    font-size: clamp(0.7rem, 0.6rem + 0.5vw, 0.9rem);
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--lavender);
+}
+
+/* Po stranách podnadpisu řádky textu jako na stránce knihy */
+.knihy-title-sub::before,
+.knihy-title-sub::after {
+    content: "";
+    flex: 0 1 3.5rem;
+    height: 0.45rem;
+    border-top: 1px solid var(--purple);
+    border-bottom: 1px solid var(--purple);
+}
+
+
+.page-section {
+    padding-bottom: var(--space-section);
+}
+
+.hero-image {
+    height: 220px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 1px solid #2b2333;
+}
+
+
+/* ==========================================
+   10. ZÁLOŽKY
+========================================== */
+
+.nav-tabs {
+    border-bottom: 1px solid #2b2333;
+}
+
+.nav-tabs .nav-link {
+    color: var(--text-dim);
+    border: 1px solid transparent;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.nav-tabs .nav-link .bi {
+    color: var(--purple);
+}
+
+.nav-tabs .nav-link:hover {
+    color: var(--lavender);
+    background-color: rgba(201, 167, 232, 0.06);
+    border-color: transparent;
+}
+
+.nav-tabs .nav-link:focus-visible {
+    outline: 0;
+    box-shadow: var(--focus-ring);
+}
+
+.nav-tabs .nav-link.active {
+    background-color: var(--surface-raised);
+    color: var(--cream);
+    border-color: #2b2333 #2b2333 var(--surface-raised);
+    box-shadow: inset 0 2px 0 var(--lavender);
+}
+
+.tab-content {
+    background-color: var(--surface-raised);
+    color: var(--text-muted);
+    line-height: 1.75;
+    border: 1px solid #2b2333;
+    border-top: 0;
+    border-radius: 0 0 var(--radius) var(--radius);
+    padding: 1.75rem 2rem;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tab-content h2,
+.tab-content h3 {
+    color: var(--cream);
+}
+
+.list-group-item {
+    background-color: transparent;
+    border-color: #2b2333;
+    color: #d8cfdd;
+}
+
+
+/* ==========================================
+   11. KNIŽNÍ DENÍK
+========================================== */
+
+/* Společné prvky: obálky a fotografie */
+
+.book-ratio {
+    --bs-aspect-ratio: 140%;
+}
+
+.book-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #2b2333;
+    border-radius: var(--radius-sm);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
+}
+
+/* Zástupný rámeček (používá se v návodu v komentářích HTML) */
+
+.book-image-slot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background-color: var(--surface-inset);
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.book-image-slot .bi {
+    font-size: 1.8rem;
+    color: var(--purple);
+}
+
+
+/* Právě čtu: jedna karta, vlevo obálka, vpravo text */
+
+.book-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 46rem;
+    margin: 0 auto;
+}
+
+.book-card-cover {
+    width: 11rem;
+    max-width: 70%;
+    margin: 0 auto;
+}
+
+/* Skutečný poměr stran obálky (320 × 440), bez ořezu */
+
+.book-card-cover .book-ratio {
+    --bs-aspect-ratio: 137.5%;
+}
+
+.book-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+}
+
+.book-card .book-title {
+    color: var(--cream);
+    font-family: var(--font-ui);
+    font-size: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+    font-weight: 500;
+    line-height: 1.3;
+    margin-bottom: 0.4rem;
+}
+
+.book-author {
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.book-head {
+    width: 100%;
+    padding-bottom: 0.9rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--border-strong);
+}
+
+.book-blurb {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+}
+
+
+/* Ukazatel čtení: bez vlastního rámečku, procenta zvýrazněná */
+
+.reading-progress {
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.reading-progress-label {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.reading-progress-value {
+    color: var(--cream);
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.reading-progress .progress {
+    height: 8px;
+    border: 0;
+}
+
+.reading-progress .progress-bar {
+    border-radius: 4px;
+}
+
+/* Nenápadné tlačítko podrobností */
+
+.btn-details {
+    --bs-btn-color: var(--cream);
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: rgba(233, 223, 201, 0.3);
+    --bs-btn-hover-color: var(--cream);
+    --bs-btn-hover-bg: rgba(233, 223, 201, 0.08);
+    --bs-btn-hover-border-color: rgba(233, 223, 201, 0.65);
+    --bs-btn-active-color: var(--cream);
+    --bs-btn-active-bg: rgba(233, 223, 201, 0.14);
+    --bs-btn-active-border-color: var(--cream);
+    --bs-btn-focus-shadow-rgb: 201, 167, 232;
+    --bs-btn-padding-y: 0.35rem;
+    --bs-btn-padding-x: 0.9rem;
+    --bs-btn-font-size: 0.875rem;
+    --bs-btn-border-radius: 999px;
+}
+
+/* Obecný ukazatel (též dovednosti v tvoření) */
+
+.progress {
+    --bs-progress-bg: var(--surface-inset);
+    --bs-progress-bar-bg: var(--purple-bright);
+    border: 1px solid var(--border-strong);
+}
+
+/* Filmy: mřížka plakátů TOP 10 */
+
+.poster-card {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    color: inherit;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* Poznámka: překryv přes plakát, zobrazí se při najetí myší nebo zaostření klávesnicí */
+
+.poster-note {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 2 / 3;
+    padding: 0.9rem;
+    background-color: rgba(15, 12, 20, 0.88);
+    border-radius: var(--radius-sm);
+    color: var(--cream);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+}
+
+.poster-card:hover .poster-note,
+.poster-card:focus-visible .poster-note {
+    opacity: 1;
+}
+
+/* Trailer: drobná ikona přehrání, která se objeví spolu s poznámkou */
+
+.poster-card::after {
+    content: "\f4f2";
+    position: absolute;
+    right: 0.6rem;
+    bottom: 3.4rem;
+    z-index: 1;
+    color: var(--cream);
+    font-family: "bootstrap-icons";
+    font-size: 1.6rem;
+    line-height: 1;
+    opacity: 0;
+    transition: opacity 0.25s;
+}
+
+.poster-card:hover::after,
+.poster-card:focus-visible::after {
+    opacity: 1;
+}
+
+/* Dotyková zařízení nemají hover: poznámka je pod názvem natrvalo */
+
+@media (hover: none) {
+
+    .poster-note {
+        position: static;
+        display: block;
+        aspect-ratio: auto;
+        padding: 0.25rem 0 0;
+        background: none;
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        opacity: 1;
+    }
+
+    .poster-card::after {
+        display: none;
+    }
+
+}
+
+.poster-card:focus-visible {
+    outline: 2px solid var(--lavender);
+    outline-offset: 4px;
+    border-radius: var(--radius-sm);
+}
+
+.poster-slot,
+.poster-image {
+    display: flex;
+    width: 100%;
+    aspect-ratio: 2 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+}
+
+/* Zástupný rámeček, dokud plakát nepřibyde */
+
+.poster-slot {
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background-color: var(--surface-inset);
+    border: 2px dashed var(--border-strong);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    transition: border-color 0.25s, transform 0.25s;
+}
+
+.poster-slot .bi {
+    color: var(--purple);
+    font-size: 1.8rem;
+}
+
+.poster-rank {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    color: var(--cream);
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.poster-title {
+    display: block;
+    margin-top: 0.6rem;
+    color: var(--cream);
+    font-size: 0.9rem;
+    line-height: 1.3;
+}
+
+.poster-card:hover .poster-slot,
+.poster-card:hover .poster-image {
+    border-color: var(--purple-deep);
+    transform: translateY(-3px);
+}
+
+/* Nedávno viděno: velký panel s plakátem a recenzí */
+
+.recent-panel {
+    max-width: 52rem;
+    margin: 0 auto;
+    padding: 1.75rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+}
+
+.recent-panel .book-card-cover .poster-slot {
+    aspect-ratio: 2 / 3;
+}
+
+
+/* Oblíbené: titul nahoře, pod ním obálka */
+
+.book-entry-title {
+    color: var(--cream) !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-bottom: 0.25rem;
+}
+
+.book-entry-title .bi {
+    font-size: 0.7rem;
+    vertical-align: 0.08em;
+}
+
+.book-entry-author {
+    color: var(--text-dim);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.9rem;
+}
+
+
+/* Seznam přání */
+
+.wishlist-box {
+    padding: 1.5rem 0.75rem;
+}
+
+.wishlist-icon {
+    font-size: 2.6rem;
+    color: var(--purple);
+}
+
+.wishlist-text {
+    max-width: 30rem;
+}
+
+
+/* ==========================================
+   12. KOMENTÁŘE
+   Vzhled osobních poznámek, ne dashboardu.
+========================================== */
+
+.comment-card {
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    margin-bottom: 1.6rem;
+    border-left: 2px solid var(--purple-deep);
+}
+
+.comment-author {
+    color: var(--cream);
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.comment-text {
+    color: var(--text-muted);
+    line-height: 1.75;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Tlačítko smazání je nenápadné a výraznější až při najetí */
+
+.comment-delete {
+    --bs-btn-padding-y: 0.15rem;
+    --bs-btn-padding-x: 0.45rem;
+    --bs-btn-color: var(--text-dim);
+    --bs-btn-border-color: transparent;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #a14a5a;
+    --bs-btn-hover-border-color: #a14a5a;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #8a3e4d;
+    --bs-btn-active-border-color: #8a3e4d;
+}
+
+
+/* ==========================================
+   13. FORMULÁŘE
+========================================== */
+
+.form-panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.03) inset, 0 10px 26px rgba(0, 0, 0, 0.3);
+}
+
+.form-panel fieldset legend {
+    color: var(--purple);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+}
+
+.form-label {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.form-control,
+.form-select,
+.input-group-text {
+    background-color: var(--surface-inset);
+    border-color: var(--border-strong);
+}
+
+.input-group-text {
+    color: var(--purple);
+}
+
+.form-control::placeholder {
+    color: var(--text-dim);
+    opacity: 0.8;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--purple-deep);
+    box-shadow: var(--focus-ring);
+}
+
+.form-check-input:checked {
+    background-color: var(--purple-deep);
+    border-color: var(--purple-deep);
+}
+
+.form-check-input:focus {
+    border-color: var(--purple);
+    box-shadow: var(--focus-ring);
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--purple-bright);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--purple-bright);
+}
+
+.form-range:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 1px var(--bg), var(--focus-ring);
+}
+
+
+/* ==========================================
+   14. TABULKA A STRÁNKOVÁNÍ
+========================================== */
+
+.table-panel {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+}
+
+/* Pruh s obaly alb: celý je odkaz na playlist */
+
+.cover-strip[hidden] {
+    display: none;
+}
+
+.cover-strip {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.cover-strip img {
+    display: block;
+    flex: 0 0 6rem;
+    width: 6rem;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 8px;
+    opacity: 0.85;
+    transition: opacity 0.25s;
+}
+
+.cover-strip:hover,
+.cover-strip:focus-visible {
+    border-color: var(--purple-deep);
+    box-shadow: var(--focus-ring);
+}
+
+.cover-strip:hover img,
+.cover-strip:focus-visible img {
+    opacity: 1;
+}
+
+/* Ikona přehrání v tabulce */
+
+.play-link {
+    color: var(--purple);
+    font-size: 1.4rem;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.play-link:hover,
+.play-link:focus-visible {
+    color: var(--cream);
+}
+
+.page-link {
+    background-color: var(--surface);
+    border-color: var(--border-strong);
+    color: var(--lavender);
+}
+
+.page-link:hover {
+    background-color: var(--purple-deep);
+    border-color: var(--purple-deep);
+    color: #fff;
+}
+
+.page-link:focus {
+    box-shadow: var(--focus-ring);
+}
+
+.page-item.active .page-link {
+    background-color: var(--purple-deep);
+    border-color: var(--purple-deep);
+    color: #fff;
+}
+
+.page-item.disabled .page-link {
+    background-color: var(--surface-inset);
+    border-color: var(--border);
+    color: var(--text-dim);
+}
+
+
+/* ==========================================
+   15. KONFIGURÁTOR NÁRAMKU (tvoření)
+========================================== */
+
+/* Pravý sloupec s galerií: na desktopu se přilepí k hornímu okraji
+   a scrolluje spolu se stránkou, dokud se konfigurátor nevytratí z obrazovky */
+
+@media (min-width: 768px) {
+    .craft-gallery-col {
+        position: sticky;
+        top: 1.5rem;
+        align-self: start;
+    }
+}
+
+/* Galerie výrobků: 1 sloupec na mobilu, 2 sloupce od sm výše (4+4) */
+
+.craft-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+}
+
+@media (min-width: 576px) {
+    .craft-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.craft-gallery-slot {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--surface-inset);
+    border: 2px dashed var(--border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--purple);
+    font-size: 1.8rem;
+    transition: border-color 0.2s;
+}
+
+.craft-gallery-slot:hover {
+    border-color: var(--purple-deep);
+}
+
+/* Skutečné fotky v galerii */
+
+.craft-gallery-img {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    object-fit: cover;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    display: block;
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.craft-gallery-img:hover {
+    transform: scale(1.03);
+    border-color: var(--purple-deep);
+}
+
+/* Popisky pod galerií: "Polštáře | Korálky" */
+
+.craft-gallery-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 0.6rem;
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.craft-gallery-labels .bi {
+    color: var(--purple);
+}
+
+
+/* ==========================================
+   16. HERNÍ STRÁNKA (hry.html)
+========================================== */
+
+/* Elden Ring pozadí — fixní, přes celou stránku, velmi tlumené */
+
+.page-hry::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background-image: url("../images/hry/eldenpozadi.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    opacity: 0.08;
+}
+
+
+/* Horizontálně scrollovatelná galerie cover artů her */
+
+.game-scroll {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 0.75rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+}
+
+.game-scroll::-webkit-scrollbar {
+    height: 4px;
+}
+
+.game-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.game-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--border-strong);
+    border-radius: 4px;
+}
+
+.game-card {
+    flex: 0 0 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.game-cover {
+    width: 120px;
+    height: 160px;
+    border-radius: var(--radius-sm);
+    font-size: 1.8rem;
+}
+
+/* Téměř čtvercový obal (DS3): zmenšit tak, aby byl vidět celý název */
+.game-cover-contain {
+    object-fit: contain;
+    background-color: var(--surface-inset);
+}
+
+.game-title {
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.3;
+    text-align: center;
+}
+
+/* Sekce „Co právě hraju" — velká karta s pozadím */
+
+.game-now-playing {
+    padding: 1rem 0 0;
+}
+
+.game-now-inner {
+    position: relative;
+    border-radius: var(--radius);
+    border: 1px solid var(--border-strong);
+    overflow: hidden;
+    min-height: 220px;
+}
+
+/* Zástupný slot nebo obrázek na pozadí */
+.game-now-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0;
+    border: none;
+    font-size: 2rem;
+}
+
+.game-now-bg img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Tmavý přechod přes obrázek — zleva obsah, zprava fotka */
+.game-now-inner::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(13, 11, 18, 0.97) 0%,
+        rgba(13, 11, 18, 0.80) 45%,
+        rgba(13, 11, 18, 0.15) 100%
+    );
+    pointer-events: none;
+}
+
+/* Obsah (text) nad obrázkem */
+.game-now-content {
+    position: relative;
+    z-index: 1;
+    padding: 1.75rem 2rem;
+    max-width: 480px;
+}
+
+/* Velký název hry */
+.game-now-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--cream);
+    margin-bottom: 1.25rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.game-now-subtitle {
+    display: block;
+    font-size: 0.45em;
+    letter-spacing: 0.35em;
+    color: var(--lavender);
+    text-transform: uppercase;
+}
+
+.game-now-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 0;
+}
+
+
+/* Barevné vzorníky: kulaté přepínače Miyuki palety */
+
+.craft-swatch {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-strong);
+    cursor: pointer;
+    transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+}
+
+.craft-swatch:hover {
+    transform: scale(1.12);
+    border-color: var(--lavender);
+}
+
+/* Zvýraznění vybraného swatche */
+
+input[type="radio"]:checked + .craft-swatch {
+    border-color: var(--lavender);
+    box-shadow: 0 0 0 3px rgba(201, 167, 232, 0.35);
+    transform: scale(1.08);
+}
+
+/* Varianta "žádná doplňková barva" */
+
+.craft-swatch--none {
+    background-color: var(--surface-inset);
+    color: var(--text-dim);
+    font-size: 0.8rem;
+}
+
+input[type="radio"]:checked + .craft-swatch--none {
+    color: var(--cream);
+}
+
+/* Transparent crystal — průhledná s třpytem */
+
+.craft-swatch--crystal {
+    background: linear-gradient(135deg, #e8f4ff 0%, #ffffff 40%, #d0e8f8 70%, #f0f8ff 100%);
+    border-color: #aaccdd;
+}
+
+/* Silver-lined — průhledná barva s lesklým středem */
+
+.craft-swatch--silver-gold {
+    background: linear-gradient(135deg, #f5e070, #c8a030, #f0d060);
+}
+
+.craft-swatch--silver {
+    background: linear-gradient(135deg, #e0e8f0, #a8b8c8, #d8e4ee);
+}
+
+.craft-swatch--silver-red {
+    background: linear-gradient(135deg, #e85858, #a01818, #e06060);
+}
+
+.craft-swatch--silver-blue {
+    background: linear-gradient(135deg, #5898e0, #1848a8, #70a8e8);
+}
+
+.craft-swatch--silver-green {
+    background: linear-gradient(135deg, #50c878, #207840, #68d888);
+}
+
+/* Iris / Rainbow — duhový metalický efekt */
+
+.craft-swatch--iris-blue {
+    background: linear-gradient(135deg, #4060c0, #6030a0, #2080d0, #40a0e0);
+}
+
+.craft-swatch--iris-green {
+    background: linear-gradient(135deg, #208060, #408820, #60b040, #20a070);
+}
+
+
+/* ==========================================
+   16. AKORDEON
+========================================== */
+
+.accordion {
+    --bs-accordion-bg: var(--surface);
+    --bs-accordion-border-color: var(--border-strong);
+    --bs-accordion-btn-color: var(--cream);
+    --bs-accordion-btn-bg: var(--surface);
+    --bs-accordion-active-color: var(--cream);
+    --bs-accordion-active-bg: var(--surface-raised);
+    --bs-accordion-btn-focus-box-shadow: var(--focus-ring);
+    --bs-accordion-btn-focus-border-color: var(--purple-deep);
+    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23c9a7e8'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.accordion-button .bi {
+    color: var(--purple);
+}
+
+.accordion-body {
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+
+/* ==========================================
+   16. RESPONZIVNÍ ZOBRAZENÍ
+========================================== */
+
+/* Karta knihy: od 576 px dva sloupce (obálka vlevo, text vpravo) */
+
+@media (min-width: 576px) {
+
+    .book-card {
+        grid-template-columns: 10rem 1fr;
+        gap: 1.75rem;
+        align-items: start;
+    }
+
+    .book-card-cover {
+        width: auto;
+        max-width: none;
+        margin: 0;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .book-card {
+        grid-template-columns: 12rem 1fr;
+        gap: 2rem;
+    }
+
+}
+
+/* YouTube thumbnail místo iframe */
+
+.yt-thumb-link {
+    position: relative;
+    display: block;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    text-decoration: none;
+}
+
+.yt-thumb-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.yt-thumb-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.25);
+    transition: background 0.2s;
+}
+
+.yt-thumb-play .bi {
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+}
+
+.yt-thumb-link:hover .yt-thumb-img {
+    transform: scale(1.04);
+}
+
+.yt-thumb-link:hover .yt-thumb-play {
+    background: rgba(0, 0, 0, 0.45);
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hobby-card,
+    .hobby-card:hover {
+        transition: none;
+        transform: none;
+    }
+
+}
+
+/* Mobil */
+
+@media (max-width: 767px) {
+
+    .site-header {
+        padding-top: 0.8rem !important;
+        padding-bottom: 0.6rem !important;
+    }
+
+    .site-logo {
+        font-size: 2.1rem;
+        letter-spacing: 2px;
+    }
+
+    .carousel-image {
+        height: 360px;
+    }
+
+    .carousel-caption {
+        left: 10%;
+        right: 10%;
+        text-align: center;
+    }
+
+    .carousel-caption h2 {
+        font-size: 1.9rem;
+    }
+
+    .currently-title,
+    .about-preview h2 {
+        font-size: 1.8rem;
+    }
+
+    .intro-section {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+
+    .currently-section,
+    .about-preview {
+        padding-bottom: 3rem;
+    }
+
+    .about-preview-inner {
+        padding: 2.25rem 1.25rem;
+    }
+
+    .hero-image {
+        height: 160px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 0.5rem 0.7rem;
+        font-size: 0.88rem;
+    }
+
+    .tab-content,
+    .form-panel,
+    .table-panel {
+        padding: 1.25rem;
+    }
+
+}
